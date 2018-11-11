@@ -24,38 +24,58 @@ crossorigin="anonymous">
     <![endif]-->
   </head>
   <style>
-    dt,
-    dd {
-      float: left;
-    }
     dt {
-      clear: left;
-      margin-right: 10px;
+      float: left;
+      width: 35%;
     }
-    .row {
-      margin-top: 30px;
+    dd+dt {
+      clear: both;
     }
+    dd {
+      float: right;
+      width: 65%;
+    }
+
+    #weather dt {
+      width: 8%;
+      margin-right: 1%;
+    }
+    #weather dt+dt {
+      width: 20%;
+    }
+
+    #weather dd,
+    #weather dt,
+    #weather dd+dt {
+      margin-top: 5px;
+    }
+    #weather dd+dd {
+      margin-top: 0;
+    }
+
     header {
       color: #ddd;
       background-image: url('goblin.png');
       background-size: cover;
       background-position: center bottom;
-      padding: 30px;
-      height: 450px;
+      padding: 3vmax;
+      height: 40vmax;
+      max-height: 500px;
+      min-height: 300px;
     }
     header h1 {
       font-family: 'Holtwood One SC', serif;
-      font-size: 80px;
+      font-size: 10vmin;
       color: #800;
       text-shadow:  -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
     }
     header h2 {
+      font-size: 4vmin;
       color: #600;
       text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     }
     header p {
       width: 60%;
-      font-size: 16px;
     }
     h2, h3, h4 {
       font-family: 'Bevan', cursive;
@@ -64,6 +84,13 @@ crossorigin="anonymous">
 
     .goblin {
       display: none;
+    }
+    blockquote {
+      font-style: italic;
+      font-size: small;
+      border: none;
+      padding: 0;
+      margin: 0;
     }
   </style>
   <body>
@@ -133,12 +160,10 @@ crossorigin="anonymous">
 </ul>
 </div>
 
-<div class="col-md-6 schema col-lg-4">
+<div class="col-sm-6 schema col-lg-4">
 <h3>Schema</h3>
-<ul>
-<li>Mellan varje match är det 15 minuters paus för swisslottning och utannonsering av nästa motståndare</li>
-<li>Efter lördagens matcher finns tillfälle för middag och samvaro för dem som vill.</li>
-</ul>
+<p>Mellan varje match är det 15 minuters paus för swisslottning och utannonsering av nästa motståndare</p>
+<p>Efter lördagens matcher finns tillfälle för middag och samvaro för dem som vill.</p>
 <div class="col-xs-6">
 <h4>Lördag</h4>
 <dl>
@@ -229,7 +254,7 @@ crossorigin="anonymous">
 
 <div class="col-md-4">
 <h4>Illegal Procedure</h4>
-<p>Används ej om inte båda coacherna är överens om det.</p>
+<p>Används <em>bara</em> om båda coacherna är överens om det.</p>
 </div>
 
 <div class="col-md-4">
@@ -261,68 +286,93 @@ crossorigin="anonymous">
 <p>Coacher har alltid rätt att under matchen byta eller dela tärningar med sin motcoach.</p>
 </div>
 
-<div class="col-md-8 well clearfix">
+<div class="col-md-8 well clearfix" id="weather">
 <h4>Custom Weather Table (2D6)</h4>
 
 <dl>
-<dt>2 Deep Snow</dt>
-<dd>
-  The pitch is covered by a thick layer of soft fluffy snow, making it exhausting to move and hard to find a ball that is on the ground.
-  Even players used to snow have problems with not sinking down in the snow and getting stuck. -1 to pick up the ball and the ball
-  never bounces on kick-off or missed passes. GFI:s are very exhausting and fails on everything but a 6, but the damage from GFIs are never worse than stunned.
-</dd>
-<dt>3 Very Cold</dt>
-<dd>
-  It is so cold out there that some players are close to becoming frozen statues. Roll a d6 for each player on the field after a
-  touchdown is scored or when a half ends. On a roll of 1, the player has to be taken from the pitch to be thawed out.
-  Place them in the Reserve box.
-</dd>
-<dt>4 Strong Winds</dt>
-<dd>
-  Immediately roll randomly on the Scatter template to determine wind direction. The result is the direction of the Strong Wind,
-    which stays in effect until the weather changes. All Kick-Offs, Inaccurate Passes and Thrown Players will be blown an additional
-    D6 squares in this direction before normal scatter rolls are made.
-</dd>
-<dt>5-9 Nice</dt>
-<dd>Perfect Blood Bowl Weather!</dd>
-<dt>10 Cold Rain</dt>
-<dd>
-  It's raining and it's below zero, making the ball slippery with ice and difficult to hold. This causes a -1 modifier on all
-    attempts to catch the ball, including picking it up and handing it off.
+<dt>2</dt>
+<dt>Deep Snow</dt>
+  <dd>
+    <blockquote>The pitch is covered by a thick layer of soft fluffy snow,
+    making it exhausting to move and hard to find a ball that is on the ground.
+    Even players used to snow have problems with not sinking down in the snow and getting stuck.
+    </blockquote>
   </dd>
-<dt>11-12 Blizzard</dt>
+  <dd>An additional -1 modifier to pick up the ball.</dd>
+  <dd>The ball never bounces on kick-off or missed passes.</dd>
+  <dd>GFI:s are very exhausting and fails on everything but a 6, but the damage from GFIs are never worse than stunned.</dd>
+<dt>3</dt><dt>Very Cold</dt>
+  <dd>
+    <blockquote>
+    It is so cold out there that some players are close to becoming frozen statues.
+    </blockquote>
+  </dd>
+  <dd>Roll a d6 for each player on the field after a touchdown is scored or when a half ends.
+    On a roll of 1, the player has to be taken from the pitch to be thawed out.
+    Place them in the Reserve box.</dd>
+<dt>4</dt><dt>Strong Winds</dt>
 <dd>
-  It's cold and snowing! The ice on the pitch means that any player attempting to move an extra square (GFI) will slip and be
-    Knocked Down on a roll of 1 or a 2, whilst the snow means that only Quick or Short passes can be attempted.
+  Immediately roll randomly on the Scatter template to determine wind direction.
+  The result is the direction of the Strong Wind,
+  which stays in effect until the weather changes.
+  All Kick-Offs, Inaccurate Passes and Thrown Players will be blown an additional
+  D6 squares in this direction before normal scatter rolls are made.
+</dd>
+<dt>5-9</dt><dt>Nice</dt>
+<dd>Perfect Blood Bowl Weather!</dd>
+<dt>10</dt><dt>Cold Rain</dt>
+<dd>
+  <blockquote>
+    It's raining and it's below zero, making the ball slippery with ice and difficult to hold.</blockquote>
+  </dd>
+  <dd>
+    This causes a -1 modifier on all attempts to catch the ball,
+    including picking it up and handing it off.
+  </dd>
+<dt>11-12</dt><dt>Blizzard</dt>
+<dd>
+  <blockquote>
+    It's cold and snowing! The pitch is icy and snow is everywhere!
+  </blockquote>
+</dd>
+<dd>Any player attempting to move an extra square (GFI) will slip and be Knocked Down on a roll of 1 or a 2.</dd>
+<dd>Only Quick or Short passes can be attempted.</dd>
 </dd>
 </dl>
 </div>
 </div>
 
 <div class="row">
-<div class="col-lg-8">
+<div class="col-lg-12">
 <h3>Inköp av lag</h3>
+<p>Varje coach köper sitt lag upp till Team Value 1.300.000.</p>
+<p>Varje lag måste ha minst 11 spelare, eventuell star player räknas inte. </p>
+
+<div class="col-md-4">
+<h4>Värdet kan användas till</h4>
 <ul>
-  <li>Varje coach köper sitt lag upp till Team Value 1.300.000.</li>
-  <li>Värdet får användas till att köpa
-    <ul>
-      <li>spelare</li>
-      <li>cheerleaders</li>
-      <li>assistant coaches</li>
-      <li>fan factor</li>
-      <li>team re-rolls</li>
-      <li>apothecary</li>
-      <li>skills (se begränsningar nedan)</li>
-    </ul>
-  <li>150.000 av detta Team Value får användas till skills (inga stat increases) enligt kostnad i regelboken.</li>
-  <li>En skill får köpas högst två gånger till laget</li>
-  <li>En spelare får köpa högst en skill.</li>
-  <li>Vampires, Ogres, Halflings och Goblins får välja två extra normal skills innan match 1.</li>
-  <li>Varje lag måste ha minst 11 spelare, eventuell star player räknas inte. </li>
+  <li>spelare</li>
+  <li>cheerleaders</li>
+  <li>assistant coaches</li>
+  <li>fan factor</li>
+  <li>team re-rolls</li>
+  <li>inducements (med begränsningar)</li>
+  <li>apothecary</li>
+  <li>skills (med begränsningar)</li>
 </ul>
 </div>
 
-<div class="col-lg-4 alert alert-info">
+<div class="col-md-4">
+<h4>Skills</h4>
+<ul>
+  <li>Högst 150.000 av Team Value får användas till skills (inga stat increases) enligt kostnad i regelboken.</li>
+  <li>En skill får köpas högst två gånger till laget</li>
+  <li>En spelare får köpa högst en skill.</li>
+  <li>Vampires, Ogres, Halflings och Goblins får välja två extra normal skills innan match 1.</li>
+</ul>
+</div>
+
+<div class="col-md-4">
 <h4>Inducements</h4>
 <p>En <a href="https://www.thenaf.net/wp-content/uploads/2018/11/NAF-Team-Lists-v1.5_NO_BG.pdf">star player från denna lista</a> tillåten. Inga andra inducements.</p>
 <h5>Undantag och förtydliganden</h5>
