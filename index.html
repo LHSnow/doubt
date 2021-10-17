@@ -7,45 +7,51 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Doubt XII</title>
     <link href="https://fonts.googleapis.com/css?family=Bevan|Holtwood+One+SC" rel="stylesheet">
-    <meta property="og:description"        content="Da Open Umeå BloodBowl Tournament 12-13 Januari 2019" />
-    <meta property="og:image"              content="http://doubt.swebba.com/goblin.sq.png" />
+    <meta property="og:description"        content="Da Open Umeå BloodBowl Tournament 22-23 Januari 2022" />
+    <meta property="og:image"              content="http://doubt.swebba.com/giant.sq.png" />
     <!-- Bootstrap -->
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
 integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
 crossorigin="anonymous">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
   </head>
   <style>
     body {
       padding-bottom: 50px;
+      background-image: url('giant.svg');
+      background-position: right top;
+      background-repeat: no-repeat;
+      background-size: 60vmin;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: 4em auto;
+      grid-template-rows: repeat(1);
     }
 
     dt {
-      float: left;
-      width: 35%;
-    }
-    dd+dt {
-      clear: both;
+      grid-column: 1;
     }
     dd {
-      float: right;
-      width: 65%;
+      grid-column: 2;
+    }
+
+    #weather dl {
+      grid-template-columns: 2em 20% auto;
     }
 
     #weather dt {
-      width: 8%;
-      margin-right: 1%;
+      grid-column: 1;
     }
     #weather dt+dt {
-      width: 20%;
+      grid-column: 2;
+    }
+
+    #weather dd {
+      grid-column: 3;
     }
 
     #weather dd,
@@ -53,44 +59,96 @@ crossorigin="anonymous">
     #weather dd+dt {
       margin-top: 5px;
     }
+
     #weather dd+dd {
       margin-top: 0;
     }
 
-    #skills h5 {
-      clear: both;
+    #skills dl {
+      display: block;
+      counter-reset: skillpack;
     }
 
-    header {
-      color: #ddd;
-      background-image: url('crush.png');
-      background-size: cover;
-      background-position: center bottom;
-      padding: 3vmax;
-      height: 40vmax;
-      max-height: 500px;
-      min-height: 300px;
+    #skills dt {
+      display: inline;
+      font-weight: normal;
     }
+
+
+    #skills dt:not(:last-of-type):after {
+      display: inline;
+      content: ", ";
+    }
+
+    #skills dt:last-of-type:after {
+      content: '';
+      display: block;
+      color:
+    }
+
+    #skills dd:before {
+      content: counter(skillpack);
+      counter-increment: skillpack;
+      font-weight: bold;
+      color: #800;
+      position: relative;
+      top: -9px;
+      left: -2px;
+      margin-right: 5px;
+    }
+
+    #skills dd:after {
+      font-family: "FontAwesome";
+      content: '\f06b';
+      font-size: 1.3em;
+      position: relative;
+      top: -15px;
+      right: -6px;
+      color: #800;
+    }
+
+    #skills dd {
+      display: inline-block;
+      margin-top: .4em;
+      margin-right: .2em;
+      background-color: #f5f5f5;
+      border: 1px solid #e3e3e3;
+      padding: 4px;
+      margin-bottom: .1em;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+    }
+
     header h1 {
       font-family: 'Holtwood One SC', serif;
-      font-size: 10vmin;
+      font-size: 13vmin;
+      margin-top: -1vmin;
       color: #800;
-      text-shadow:  -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+      text-shadow:  -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white;
     }
     header h2 {
-      font-size: 4vmin;
+      margin-top: 0;
+      font-size: 3.5vmin;
       color: #600;
-      text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+      text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
     }
     header p {
-      width: 60%;
     }
     h2, h3, h4 {
       font-family: 'Bevan', cursive;
       color: #900;
     }
 
-    .goblin {
+    a {
+      font-weight: bold;
+    }
+
+    li a {
+      display: block;
+      margin-bottom: 15px;
+    }
+
+    .giant {
       display: none;
     }
     blockquote {
@@ -104,40 +162,40 @@ crossorigin="anonymous">
   <body>
 
 
+    <div class="container">
+    <div class="row">
   <header class="header">
-  <img src="goblin.sq.png" class="goblin"/>
-  <h2>Da Open Umeå BloodBowl Tournament</h2>
-  <h1>DOUBT XII</h1>
-  <p>Tolfte upplagan av Norrlands äldsta <a href="http://www.thenaf.net/">NAF-sanktionerade</a> BloodBowl-turnering</p>
-  <h2>22-23 januari 2022</h2>
+  <img src="giant.sq.png" class="giant"/>
+  <div class="col-lg-12">
+    <h2>Da Open Umeå BloodBowl Tournament</h2>
+    <h1>DOUBT XII</h1>
+  </div>
+  <p class="col-lg-4 col-xs-5">Tolfte upplagan av Norrlands äldsta <a href="http://www.thenaf.net/">NAF-sanktionerade</a> BloodBowl-turnering</p>
+  <h2 class="col-lg-8 col-md-7 col-xs-8">22-23 januari 2022</h2>
   </header>
-<div class="container">
+
+</div>
 <div class="row">
 
-<div class="col-lg-3 col-md-6">
+<div class="col-lg-2 col-md-3 col-sm-9 col-xs-5">
 <h3>Lokal</h3>
 <p>Thoren Business School, Järnvägsallén 24, Umeå</a></p>
-</div>
-
-<div class="col-lg-3 col-md-6">
 <h3>Avgift</h3>
 <p>200kr</p>
 </div>
 
-<div class="col-lg-3 col-md-6">
+<div class="col-lg-2 col-md-4 col-sm-9 col-xs-8">
 <h3>Frågor</h3>
-<ul>
-  <li>Via mail till <a href="mailto:krished@hotmail.com">krished@hotmail.com</a></li>
-  <li>På forumet SweBBA i
-    <a href="http://forum.swebba.se/index.php?p=/messages/add/Marty33">PM till Marty33</a> eller
-    <a href="http://forum.swebba.com/index.php?p=/discussion/1928">i DOUBT XII-tråden</a>
-  </li>
+<ul class="fa-ul">
+  <li><i class="fa-li fa fa-envelope"></i><a href="mailto:krished@hotmail.com">krished@hotmail.com</a></li>
+  <li><i class="fa-li fa fa-envelope"></i><a href="http://forum.swebba.se/index.php?p=/messages/add/Marty33">PM till Marty33</a></li>
+  <li><i class="fa-li fa fa-envelope-open"></i><a href="http://forum.swebba.com/index.php?p=/discussion/1928">DOUBT XII-tråden</a></li>
 </ul>
 </div>
 
-<div class="col-md-6 col-lg-3">
+<div class="col-lg-2 col-md-12 col-sm-7 col-xs-5">
 <h3>Anmälan</h3>
-<p>Skicka mail till <a href="mailto:krished@hotmail.com">krished@hotmail.com</a>. Inkludera:
+<p>Skicka mail till <a href="mailto:krished@hotmail.com">krished@hotmail.com</a> med
 <ol>
   <li>NAF-namn</li>
   <li>NAF-nummer</li>
@@ -146,7 +204,10 @@ crossorigin="anonymous">
 </ol>
 </div>
 
-<div class="col-md-6 col-lg-6">
+</div>
+<div class="row">
+
+<div class="col-md-7 col-lg-4 col-sm-5">
 <h3>Att ta med</h3>
 <ul class="fa-ul">
   <li><i class="fa-li fa fa-check-square"></i>Ditt lag. Alla modeller måste vara någorlunda WYSIWYG, och det skall vara möjligt att skilja spelare och spelartyper åt. Skall en proxy användas skall den ha ett uppenbart kännemärke.
@@ -172,7 +233,7 @@ crossorigin="anonymous">
 </dl>
 </div>
 
-<div class="col-sm-6 schema col-lg-6">
+<div class="col-sm-12 col-md-12 schema col-lg-4">
 <h3>Schema</h3>
 <p>Mellan varje match är det 15 minuters paus för swisslottning och utannonsering av nästa motståndare</p>
 <p>Efter lördagens matcher finns tillfälle för middag och samvaro för dem som vill.</p>
@@ -229,7 +290,7 @@ crossorigin="anonymous">
 
 <div class="col-md-6">
 <h4>Regelförtydliganden</h4>
-<p>Turneringen använder Blood Bowl 2020 edition exhibition play rules, NAF 2021 rules for tournaments, GW Teams of legends (om det kommer ett nytt officiellt Khorne i ett Spike Magazine så gäller det) och GW faq/errata.</p>
+<p>Turneringen använder Blood Bowl 2020 edition exhibition play rules, NAF 2021 rules for tournaments, GW Teams of legends (om det kommer ett nytt officiellt Khorne-roster i ett Spike Magazine senast 14 dagar innan turneringen så gäller det) och GW faq/errata.</p>
 <p>För Kick-Off event Prayers for Nuffle så används tournament table (BB2020 Rulebook sida 103).</p>
 <p>Eventuella spelare adderade till ett lags roster som Masters of Undeath eller Plague Ridden raderas efter matchen och följer således inte med till nästa match.</p>
 
@@ -370,7 +431,7 @@ crossorigin="anonymous">
 
 <div class="col-md-8" id="skills">
 <h4>Skills</h4>
-<p>För varje tier finns tre skill packs att välja bland, utöver det gäller alltid följande:
+<p>För varje tier finns tre skill packs <i class="fa fa-gift" role="presentation"></i> att välja bland, utöver det gäller alltid följande:
 </p>
 <ul>
   <li>En skill får köpas högst två gånger till laget</li>
@@ -419,18 +480,17 @@ crossorigin="anonymous">
   <dt>Chaos renegade</dt>
     <dd>7 primary</dd>
     <dd>5 primary + 1 secondary</dd>
-    <dd>Star player + 4 primary</dd>
+    <dd>star player + 4 primary</dd>
 </dl>
 
 <h5>Tier 4</h5>
 <dl>
-  <dt>Daemons of Khorne<sup><a href="#khorne">*</a></sup></dt>
+  <dt>Daemons of Khorne</dt>
   <dt>Vampire</dt>
     <dd>7 primary + 1 secondary</dd>
     <dd>5 primary + 2 secondary</dd>
     <dd>star player + 3 primary + 1 secondary</dd>
 </dl>
-<p id="khorne"><sup>*</sup> Om nytt officiellt Khorne-roster släpps minst 14 dagar innan så gäller det rostret</p>
 
 <h5>Tier 5</h5>
 <dl>
