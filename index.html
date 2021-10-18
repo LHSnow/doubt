@@ -147,7 +147,7 @@ crossorigin="anonymous">
       bottom: 1.4vmin;
     }
 
-    h2, h3, h4 {
+    th, h2, h3, h4 {
       font-family: 'Bevan', cursive;
       color: #900;
     }
@@ -161,7 +161,7 @@ crossorigin="anonymous">
       margin-bottom: 15px;
     }
 
-    .giant {
+    .hidden {
       display: none;
     }
     blockquote {
@@ -171,6 +171,84 @@ crossorigin="anonymous">
       padding: 0;
       margin: 0;
     }
+    .profile th,
+    .profile td {
+      padding: .2em;
+      text-align: center;
+    }
+
+    .profile th {
+      font-size: .8em;
+    }
+
+    #giant-tz {
+      background-color: #600;
+      color: white;
+      font-family: 'Bevan', cursive;
+      font-size: 1.5em;
+      border: 1px solid #e3e3e3;
+      box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+      width: 280px;
+      height: 280px;
+      position: relative;
+    }
+
+    #giant-tz td {
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      vertical-align: middle;
+      position: relative;
+    }
+
+    #giant-tz:after,
+    #giant-tz:before,
+    #giant-tz td:before,
+    #giant-tz td:after {
+      content: "+";
+      position: absolute;
+      z-index: 10;
+      color: #333;
+      text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+    }
+
+
+    #giant-tz:before {
+      top: -15px;
+      right: -4px;
+    }
+    #giant-tz:after {
+      top: 265px;
+      left: -4px;
+    }
+
+    #giant-tz td:before {
+      bottom: -15px;
+      right: -4px;
+    }
+
+    #giant-tz td:after {
+      top: -15px;
+      left: -5px;
+    }
+
+    caption {
+      color: #333;
+      font-size: 1.4rem;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+      caption-side: bottom;
+    }
+
+    #giant-tz .giant {
+      background-color: #900;
+      border-radius: 200px;
+      padding-top: 2.3em;
+    }
+
+    #giant-tz .back td {
+      background-color: #ddd;
+    }
+
   </style>
   <body>
 
@@ -178,7 +256,7 @@ crossorigin="anonymous">
     <div class="container">
     <div class="row">
   <header class="header">
-  <img src="giant.sq.png" class="giant"/>
+  <img src="giant.sq.png" class="hidden" alt=""/>
   <h2 class="col-lg-12 col-xs-12">Da Open Umeå BloodBowl Tournament</h2>
   <h1 class="col-lg-12 col-xs-10">DOUBT XII <em>- Not a small thing!</em></h1>
   <p class="col-lg-4 col-xs-6">Tolfte upplagan av Norrlands äldsta <a href="http://www.thenaf.net/">NAF-sanktionerade</a> BloodBowl-turnering</p>
@@ -421,6 +499,55 @@ crossorigin="anonymous">
 </div>
 
 <div class="col-md-4">
+  <h4>Giant</h4>
+  <table class="profile">
+    <thead>
+      <tr>
+        <th>MA</th>
+        <th>ST</th>
+        <th>AG</th>
+        <th>PA</th>
+        <th>AV</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>6</td>
+        <td>7</td>
+        <td>5+</td>
+        <td>5+</td>
+        <td>11+</td>
+      <tr>
+    </tbody>
+  </table>
+  <p>Always Hungry, Bone Head, Break Tackle, Juggernaut, Loner (4+),
+    Mighty Blow (+2), Multiple Block, Stand Firm, Throw Team-mate</p>
+  <table id="giant-tz">
+    <tr class="back">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>TZ</td>
+      <td colspan="2" rowspan="2" class="giant">GIANT <br/><i class="fa fa-caret-down fa-2x"></i> <span class="sr-only">facing down</span></td>
+      <td>TZ</td>
+    </tr>
+    <tr>
+      <td>TZ</td>
+      <td>TZ</td>
+    </tr>
+    <tr>
+      <td>TZ</td>
+      <td>TZ</td>
+      <td>TZ</td>
+      <td>TZ</td>
+    </tr>
+    <caption>Always occupies 4 squares.
+    Does not have tackle zones to their backs. Make clear in which direction the Giant is facing.</caption>
+  </table>
+
 <h4>Inducements</h4>
 <p>Inducements som får köpas in till laget för de 1.150.000 utöver vanliga regler för skapande av roster är (följer de officiella reglerna gällande priser för olika lag):</p>
 <ul>
